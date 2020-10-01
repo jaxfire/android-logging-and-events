@@ -8,9 +8,8 @@ class CloudReportingTree: Timber.Tree() {
 
         // Crashlytics automatically collects crash reports
 
-        // TODO: Research Crashlytics logging types
         if (priority == Log.WARN || priority == Log.ERROR) {
-            FakeCloudLoggingLibrary.log(priority, tag, message, t)
+            FakeCloudLoggingLibrary.log(message, t)
         }
     }
 }

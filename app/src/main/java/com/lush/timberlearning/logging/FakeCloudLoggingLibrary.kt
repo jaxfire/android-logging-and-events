@@ -1,17 +1,14 @@
 package com.lush.timberlearning.logging
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+
 class FakeCloudLoggingLibrary private constructor() {
     companion object {
-        fun log(priority: Int, tag: String?, message: String?, t: Throwable?) {
-            // TODO
+        fun log(message: String?, throwable: Throwable?) {
+            val finalMessage = "Message: $message, Throwable's Message: ${throwable?.message}"
+            FirebaseCrashlytics.getInstance()
+                .recordException(LoggingException(finalMessage))
         }
-
-        fun logWarning(t: Throwable?) {
-            // TODO
-        }
-
-        fun logError(t: Throwable?) {
-            // TODO
-        }
+        private class LoggingException(message: String?) : Exception(message)
     }
 }

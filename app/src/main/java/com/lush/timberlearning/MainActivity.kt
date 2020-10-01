@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         firebaseAnalytics = Firebase.analytics
 
         Timber.log(Log.DEBUG, "Message A")
-//        Timber.log(Log.ERROR, Throwable("Test Throwable"))
+        Timber.log(Log.ERROR, Throwable("Test Throwable"), "Custom note")
     }
 
     override fun onStart() {
